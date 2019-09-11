@@ -49,8 +49,11 @@ Install npm dependencies for server-app and dev-dependencies for client-app
 
 
 **Step to RUN DEV Server:**
+
 Required if you need to do development, else skip this step. It starts watching your source files for any change and bundles accordingly.
+
 **user-management-internations/ums-server-app>** `npm run watch`
+
 
 You can access the Application at:
 
