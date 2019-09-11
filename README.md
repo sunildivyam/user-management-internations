@@ -35,16 +35,25 @@ I am comfortable with JavaScript and ES6 and I am also comfortable with react & 
 **Database:** json-server (No-SQL)
 
 **Step to RUN Application:**
-Install npm dependencies for server-app and dev-dependencies for client-ap
+
+Install npm dependencies for server-app and dev-dependencies for client-app
+
 
 **user-management-internations/ums-server-app>** `npm i`
+
 **user-management-internations>** `npm i`
+
 **user-management-internations>** `npm run json-server`
+
 **user-management-internations>** `npm run start`
 
+
 **Step to RUN DEV Server:**
+
 Required if you need to do development, else skip this step. It starts watching your source files for any change and bundles accordingly.
+
 **user-management-internations/ums-server-app>** `npm run watch`
+
 
 You can access the Application at:
 
