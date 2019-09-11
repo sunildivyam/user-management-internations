@@ -1,4 +1,27 @@
 <div class="container">
-    <h1>{{l('groupform.title')}}</h1>
-    <p>This feature is IN-PROGRESS</p>
-</div>
+        <h1>{{l('groupform.title')}}</h1>
+        <p>This feature is IN-PROGRESS</p>
+        <section class="form-container">
+            <form method="POST">
+                <div class="field">
+                    <label>{{l('groupform.label.id')}}: </label>
+                    <span class="{{d.group && d.group.id ? '':'hidden'}}"> {{d.group.id}}</span>
+                    <span class="{{d.group && d.group.id ? 'hidden':''}}"> {{l('groupform.label.newgroup')}}</span>
+                </div>
+                <div class="field">
+                    <label>{{l('groupform.label.name')}}</label>
+                    <input required maxlength="50" type="text" name="name" value="{{d.group.name}}"/>
+                </div>
+                <div class="field">
+                    <label>{{l('groupform.label.description')}}</label>
+                    <textarea maxlength="500" name="description" value="{{d.group.description}}"></textarea>
+                </div>
+                <div class="field">
+                    <label>{{l('groupform.label.users')}}</label>
+                    <button type="button">{{l('groupform.addusers')}}</button>
+                </div>
+            <hr/>
+                <button type="submit">{{l('groupform.submit')}}</button>
+            </form>
+        </section>
+    </div>

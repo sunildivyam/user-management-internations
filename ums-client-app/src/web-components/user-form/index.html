@@ -1,4 +1,31 @@
 <div class="container">
     <h1>{{l('userform.title')}}</h1>
     <p>This feature is IN-PROGRESS</p>
+    <section class="form-container">
+        <form method="POST">
+            <div class="field">
+                <label>{{l('userform.label.id')}}: </label>
+                <span class="{{d.user && d.user.id ? '':'hidden'}}"> {{d.user.id}}</span>
+                <span class="{{d.user && d.user.id ? 'hidden':''}}"> {{l('userform.label.newuser')}}</span>
+            </div>
+            <div class="field">
+                <label>{{l('userform.label.firstname')}}</label>
+                <input required maxlength="50" type="text" name="firstName" value="{{d.user.firstName}}"/>
+            </div>
+            <div class="field">
+                <label>{{l('userform.label.lastname')}}</label>
+                <input required maxlength="50" type="text" name="lastName" value="{{d.user.lastName}}"/>
+            </div>
+            <div class="field">
+                <label>{{l('userform.label.email')}}</label>
+                <input required maxlength="100" type="email" name="email" value="{{d.user.email}}"/>
+            </div>
+            <div class="field">
+                <label>{{l('userform.label.groups')}}</label>
+                <button type="button">{{l('userform.addgroups')}}</button>
+            </div>
+            <hr/>
+            <button type="submit">{{l('userform.submit')}}</button>
+        </form>
+    </section>
 </div>

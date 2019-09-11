@@ -9,3 +9,4 @@ import './user-dashboard';
 import './group-dashboard';
 import './group-form';
 import './user-form';
+import './page-footer';
