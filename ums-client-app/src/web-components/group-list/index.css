@@ -5,6 +5,9 @@
     align-items: flex-start;
     justify-content: flex-start;
 }
+* {
+    box-sizing: border-box;
+}
 .container * {
     box-sizing: border-box;
 }
@@ -50,8 +53,11 @@ li {
     padding: 5px;
     cursor: pointer;
 }
-li:hover, li.active {
+li:hover {
     background-color: var(--primary-lighter);
+}
+li.active {
+    background-color: var(--secondary-light);
 }
 .name {
     font-weight: bold;
@@ -68,6 +74,7 @@ li:hover, li.active {
     overflow-y: auto;
     border: none;
     margin-top: -20px;
+    max-height: none;
 }
 
 .readonly li {
@@ -85,4 +92,9 @@ li:hover, li.active {
     ul {
         max-height: 500px;
     }
+        
+    .readonly ul {        
+        max-height: none;
+    }
+
 }

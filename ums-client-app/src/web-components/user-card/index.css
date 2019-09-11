@@ -8,10 +8,16 @@
     padding: 0px 15px;
     border-radius: 10px;
 }
+
+* {
+    box-sizing: border-box;
+}
+
 h1 {
     margin-bottom: 0px;
     width: 100%;
-    border-bottom: 1px solid var(--primary-light);
+    border-bottom: 5px solid var(--primary-light);
+    font-size: 22px;
 }
 .email {
     font-size: 18px;
@@ -32,9 +38,30 @@ h1 {
 .groups {
     width: 100%;
 }
+.info {
+    width: 100%;
+}
 .info-container {
     width: 100%;
 }
+.controls {
+    display: block;
+    text-align: right;
+    width: 100%;
+}
+a.btn, a.btn:active, a.btn:visited {
+    display: block;
+    margin: 0px;
+    margin-bottom: 2px;
+    padding: 10px 19px;
+    text-decoration: none;
+    background: var(--primary-light);
+    transition: 0.4s all;
+}
+.btn:hover {
+    background: var(--secondary-light);
+}
+
 @media only screen and (min-width: 768px) {
     .info-container {
         flex-direction: row;
@@ -42,5 +69,13 @@ h1 {
     }
     .groups {
         padding-left: 15px;
+    }
+    .info, .groups {
+        width: 50%;
+    }
+    a.btn, a.btn:active, a.btn:visited {
+        display: inline-block;
+        width: auto;
+        margin-left: 10px;
     }
 }

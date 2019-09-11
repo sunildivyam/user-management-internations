@@ -33,6 +33,12 @@ class UserDashboard extends HTMLElement {
       const userCard = this.shadowRoot.querySelector('wc-user-card');
       userCard.setAttribute('userid', this.state.selectedUser && this.state.selectedUser.id || '');
     });
+
+    const userCard = this.shadowRoot.querySelector('wc-user-card');
+    userCard.addEventListener('user-action', e => {
+      alert('This feature is COMING SOON');
+    });
+
   }
   render() {
     const sRoot = this.shadowRoot;

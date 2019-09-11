@@ -62,6 +62,19 @@ class UserCard extends HTMLElement {
     const locale = locales[localeName] || {};
     return localeProviderFn(locale);
   }
+  addEventHandlers() {
+    const btns = this.shadowRoot.querySelectorAll('.controls .btn');
+    btns && btns.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        //dispatch event user-action
+        const actionName = e.target.getAttribute('action-name');
+        const clickEvent = new Event('user-action');
+        clickEvent.data = {action: actionName, user: this.state.user};
+        this.dispatchEvent(clickEvent);
+      });
+    });
+  }
 
   render() {
     const sRoot = this.shadowRoot;
@@ -71,6 +84,7 @@ class UserCard extends HTMLElement {
     styleEl.textContent = styles;
     sRoot.appendChild(styleEl);
     sRoot.innerHTML += html;
+    this.addEventHandlers();
   }
 }
 

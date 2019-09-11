@@ -5,9 +5,10 @@
     align-items: flex-start;
     justify-content: flex-start;
 }
-.container * {
+* {
     box-sizing: border-box;
 }
+
 .search-container{
     width: 100%;
     position: relative;
@@ -50,8 +51,12 @@ li {
     padding: 5px;
     cursor: pointer;
 }
-li:hover, li.active {
+li:hover {
     background-color: var(--primary-lighter);
+}
+
+li.active {
+    background-color: var(--secondary-light);
 }
 .email {
     color: var(--primary);

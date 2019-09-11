@@ -1,5 +1,10 @@
 <div class="container">
-    <h1>User Information</h1>
+    <h1>{{l('usercard.title')}}</h1>
+    <section class="controls">
+        <a action-name="delete" class="btn" id="delete-btn" href="#">{{l('usercard.delete')}}</a>
+        <a action-name="edit" class="btn" id="edit-btn" href="#">{{l('usercard.edit')}}</a>
+        <a action-name="add" class="btn" id="add-btn" href="#">{{l('usercard.add')}}</a>
+    </section>
     <div class="info-container {{d.user ? '' : 'hidden'}}">
         <div class="info">
             <div class="name">
