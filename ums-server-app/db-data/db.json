@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": "10003",
+      "email": "sunil.divyam@gmail.com",
+      "firstName": "Sunil",
+      "lastName": "Kumar",
+      "groupIds": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "1004",
+      "email": "abc@gmail.com",
+      "firstName": "ABC",
+      "lastName": "Kumar",
+      "groupIds": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "10002",
+      "email": "teremadam@gmail.com",
+      "firstName": "Teremadam",
+      "lastName": "Kumar",
+      "groupIds": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "10009",
+      "email": "fghfhfh@gmail.com",
+      "firstName": "Kunil",
+      "lastName": "Fghfhfh",
+      "groupIds": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "10008",
+      "email": "uuuuuuuuu@gmail.com",
+      "firstName": "Uuuuuuuuu",
+      "lastName": "Kumar",
+      "groupIds": []
+    }
+  ],
+  "groups": [
+    {
+      "id": "1",
+      "name": "everyone",
+      "description": "Every user needs to be a member of this group"
+    },
+    {
+      "id": "2",
+      "name": "administrators",
+      "description": "Users with Administrators rights"
+    },
+    {
+      "id": "3",
+      "name": "sales-force",
+      "description": "Users from Sales Force team & rights"
+    }
+  ]
+}
