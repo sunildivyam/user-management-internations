@@ -3,6 +3,7 @@ import htmlTemplate from './index.html';
 import renderView from '../../services/view-render-service';
 import {locales} from './locale';
 import localeProviderFn from '../../services/locale-provider-fn';
+import router from '../../services/router';
 class UserDashboard extends HTMLElement {
   constructor() {
     super();
@@ -36,7 +37,7 @@ class UserDashboard extends HTMLElement {
 
     const userCard = this.shadowRoot.querySelector('wc-user-card');
     userCard.addEventListener('user-action', e => {
-      alert('This feature is COMING SOON');
+      router.navigate('/manageuser');
     });
 
   }

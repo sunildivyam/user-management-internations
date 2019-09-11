@@ -1,8 +1,8 @@
 export const locales = {
     en: {
-        'usercard.title': 'User Details'
+        'userform.title': 'User Form'
     },
     gb: {
-        'usercard.title': ''
+        'userform.title': ''
     }
 }

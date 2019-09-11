@@ -4,6 +4,8 @@ import Group from '../../models/group';
 import renderView from '../../services/view-render-service';
 import {locales} from './locale';
 import localeProviderFn from '../../services/locale-provider-fn';
+import loader from '../../services/loader-service';
+
 class UserCard extends HTMLElement { 
   static get observedAttributes() {
     return ['userid'];
@@ -14,7 +16,7 @@ class UserCard extends HTMLElement {
     this.state = {
       user: null,
       groups: null,
-      error: ''
+      error: 'No User Selected or No data available.'
     };
   }
   connectedCallback() {
@@ -31,6 +33,7 @@ class UserCard extends HTMLElement {
   }
 
   fetchUser(id) {
+    loader.start();
     fetch(`/api/users/${id}`)
     .then(res => {
       if (res.ok) {
@@ -44,17 +47,15 @@ class UserCard extends HTMLElement {
     .then(user => {
       this.state.user = user;
       this.render();
+      loader.stop();
     })
     .catch(err => {
       console.log("Error: ", err.message);
       this.state.user = null;
       this.state.error = err.message;
       this.render();
+      loader.stop();
     })
-  }
-
-  fetchUserGroups() {
-    this.state.groups = new Group();
   }
 
   getLocaleFn() {

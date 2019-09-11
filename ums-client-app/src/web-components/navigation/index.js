@@ -11,6 +11,7 @@ class Navigation extends HTMLElement {
       this.render();
     });
     router.subscribe((route) => {
+      if (!route) return;
       const navLinks = this.shadowRoot.querySelectorAll('a');
       navLinks && navLinks.length && navLinks.forEach(a => {
         const href = a.getAttribute('href');
@@ -49,15 +50,17 @@ class Navigation extends HTMLElement {
     sRoot.innerHTML = '';
     const nav = document.createElement('nav');    
     router.routes.map(r => {
-      const a = document.createElement('a');
-      a.classList.add('link');
-      a.setAttribute('href', r.path);
-      a.innerHTML = r.title;
-      a.addEventListener('click', this.handleLinkClick);
-      if (r.path === router.activeRoute.path) {
-        a.classList.add('active');
+      if (r.title) {
+        const a = document.createElement('a');
+        a.classList.add('link');
+        a.setAttribute('href', r.path);
+        a.innerHTML = r.title;
+        a.addEventListener('click', this.handleLinkClick);
+        if (r.path === router.activeRoute.path) {
+          a.classList.add('active');
+        }
+        nav.appendChild(a);
       }
-      nav.appendChild(a);
     });
     const styleEl = document.createElement('style');
     styleEl.textContent = styles;

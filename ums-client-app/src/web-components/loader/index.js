@@ -1,46 +1,31 @@
 import styles from './index.css';
 import htmlTemplate from './index.html';
-import Group from '../../models/group';
 import renderView from '../../services/view-render-service';
 import {locales} from './locale';
 import localeProviderFn from '../../services/locale-provider-fn';
 
-class UserCard extends HTMLElement {
+class Loader extends HTMLElement {
+  static get observedAttributes() {
+    return ['loading'];
+  }
   constructor() {
     super();
     this.attachShadow({mode: 'open'});
     this.state = {
-      user: null,
-      groups: null
+      loading: false
     };
   }
   connectedCallback() {
-    const id = this.getAttribute('userid') || '';
-    this.fetchUser(id);
+    this.render();
   }
   disconnectedCallback() {
     //TODO:
   }
   attributeChangedCallback(attrName, oldVal, newVal) {
-    this.render();
-  }
-
-  fetchUser(id) {
-    fetch(`/api/users/${id}`)
-    .then(res => res.json())
-    .then(user => {
-      this.state.user = user;
-      this.render();      
-    })
-    .catch(err => {
-      console.log('Failed', err)
-      this.state.user = null;
+    if (attrName === 'loading' && oldVal != newVal) {
+      this.state.loading = newVal;
       this.render();
-    })
-  }
-
-  fetchUserGroups() {
-    this.state.groups = new Group();
+    }
   }
 
   getLocaleFn() {
@@ -51,18 +36,17 @@ class UserCard extends HTMLElement {
 
   render() {
     const sRoot = this.shadowRoot;
-    if (!this.state.user) {
-      const errEl = document.createElement('span');
-      errEl.innerHTML = 'No User Found';
-      sRoot.appendChild(errEl);
-      return;
-    }
+    sRoot.innerHTML = '';
     const html = renderView(htmlTemplate, this.state, this.getLocaleFn());
     const styleEl = document.createElement('style');
     styleEl.textContent = styles;
     sRoot.appendChild(styleEl);
     sRoot.innerHTML += html;
+    if (this.state.loading == 'true') {
+      this.classList.remove('hidden');
+    } else {
+      this.classList.add('hidden');
+    }
   }
 }
-
-customElements.define('user-card', UserCard);
+customElements.define('wc-loader', Loader);

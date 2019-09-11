@@ -1,8 +1,8 @@
 export const locales = {
     en: {
-        'usercard.title': 'User Details'
+        'loader.title': 'loading...'
     },
     gb: {
-        'usercard.title': ''
+        'loader.title': ''
     }
 }

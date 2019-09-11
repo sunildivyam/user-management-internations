@@ -4,6 +4,7 @@ import liTemplate from './list-item.html';
 import renderView from '../../services/view-render-service';
 import {locales} from './locale';
 import localeProviderFn from '../../services/locale-provider-fn';
+import loader from '../../services/loader-service';
 
 class GroupList extends HTMLElement {
   static get observedAttributes() {
@@ -42,6 +43,7 @@ class GroupList extends HTMLElement {
     }
   }
   fetchGroups(id) {
+    loader.start();
     let url = '/api/groups';
     if (id) {
       url = `/api/groupsbyuser/${id}`;
@@ -51,10 +53,12 @@ class GroupList extends HTMLElement {
     .then(groups => {
       this.state.groups = groups;
       this.render();
+      loader.stop();
     })
     .catch(err => {
       this.state.groups = [];
       this.render();
+      loader.stop();
     })
   }
 

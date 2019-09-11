@@ -5,6 +5,9 @@ import {locales} from './locale';
 import localeProviderFn from '../../services/locale-provider-fn';
 
 class ErrorBox extends HTMLElement {
+  static get observedAttributes() {
+    return ['hide', 'message', 'title'];
+  }
   constructor() {
     super();
     this.attachShadow({mode: 'open'});
@@ -35,17 +38,18 @@ class ErrorBox extends HTMLElement {
       hide: this.getAttribute('hide') || false,
       title: this.getAttribute('title') || '',
       message: this.getAttribute('message') || ''
-    };    
+    };
   }
   render() {
     const sRoot = this.shadowRoot;
+    sRoot.innerHTML = '';
     this.getStateFromProps();
-    if (this.state.hide == true) {
+    if (this.state.hide == 'true') {
       this.classList.add('hidden');
     } else {
       this.classList.remove('hidden');
-    }    
-    const html = renderView(htmlTemplate, this.state, this.getLocaleFn());    
+    }
+    const html = renderView(htmlTemplate, this.state, this.getLocaleFn());
     const styleEl = document.createElement('style');
     styleEl.textContent = styles;
     sRoot.appendChild(styleEl);

@@ -1,9 +1,27 @@
 <div class="container">
-    <h1>{{l('usercard.title')}}</h1>
-    <h2 class="name">{{d.user.firstName}}</h2>
-    <h3 class="email">{{d.user.email}}</h3>
-    <div class="groups">
-        <h2 class="group-heading"></h2>
-        <ul class="group-list"></ul>
+    <h1>{{l('groupcard.title')}}</h1>
+    <section class="controls {{!d.group || !d.group.id ? 'hidden': ''}}">
+        <a action-name="delete" class="btn" id="delete-btn" href="#">{{l('groupcard.delete')}}</a>
+        <a action-name="edit" class="btn" id="edit-btn" href="#">{{l('groupcard.edit')}}</a>
+        <a action-name="add" class="btn" id="add-btn" href="#">{{l('groupcard.add')}}</a>
+    </section>
+    <div class="info-container {{!d.group || !d.group.id ? 'hidden': ''}}">
+        <div class="info">
+            <div class="name">
+                <h3>{{l('groupcard.label.id')}}</h3>
+                <span>{{d.group.id}}</span>
+                <h3>{{l('groupcard.label.name')}}</h3>
+                <span>{{d.group.name}}</span>
+            </div>
+            <div class="description">
+                <h3>{{l('groupcard.label.description')}}</h3>
+                <span>{{d.group.description}}</span>
+            </div>
+        </div>
+        <div class="users">
+            <h3>{{l('groupcard.label.users')}}</h3>
+            <wc-user-list groupid="{{d.group.id}}"></wc-user-list>
+        </div>
     </div>
+    <wc-error-box hide="{{!d.group || !d.group.id ?false:true}}" message="{{d.error}}"></wc-error-box>
 </div>

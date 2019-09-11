@@ -4,6 +4,7 @@ import liTemplate from './list-item.html';
 import renderView from '../../services/view-render-service';
 import {locales} from './locale';
 import localeProviderFn from '../../services/locale-provider-fn';
+import loader from '../../services/loader-service';
 
 class UserList extends HTMLElement {
   static get observedAttributes() {
@@ -30,6 +31,7 @@ class UserList extends HTMLElement {
   }
 
   fetchUsers(id) {
+    loader.start();
     let url = '/api/users';
     if (id) {
       url = `/api/usersbygroup/${id}`;
@@ -39,10 +41,12 @@ class UserList extends HTMLElement {
     .then(users => {
       this.state.users = users;
       this.render();
+      loader.stop();
     })
     .catch(err => {
       this.state.users = [];
       this.render();
+      loader.stop();
     })
   }
 
