@@ -1,6 +1,6 @@
 # InterNations
 ## User management Application
-Although I am also comfortable with react & angular, I tried to develop this app, without using any js library or js framework.
+I am comfortable with JavaScript and ES6 and I am also comfortable with react & angular, So I tried to develop this app, without using any js library or js framework.
 
 **Front End:** ES6/JavaScript only, no external libraries/framework used. No NPM packages used as dependencies.
 
@@ -82,5 +82,52 @@ DELETE API endpoints:
 
     http://localhost:3000/users/:id
     http://localhost:3000/groups/:id
+
+## Database JSON Structure:
+
+    {
+      "users": [
+        {
+          "id": "10001",
+          "email": "Cdocftuu.Rn@gmail.com",
+          "firstName": "Afxxgfzccfddma",
+          "lastName": "Utiauw",
+          "groupIds": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "id": "11999",
+          "email": "Koqzdvglxy.Yarcgdhygnxadk@gmail.com",
+          "firstName": "V",
+          "lastName": "Nkh",
+          "groupIds": [
+            "1",
+            "2"
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "id": "1",
+          "name": "everyone",
+          "description": "Every user needs to be a member of this group"
+        },
+        {
+          "id": "2",
+          "name": "administrators",
+          "description": "Users with Administrators rights"
+        },
+        {
+          "id": "3",
+          "name": "sales-force",
+          "description": "Users from Sales Force team & rights"
+        }
+      ]
+    }
+
+More details & properties can be added in to the models as per business requirements.
 
 ## Thanks
