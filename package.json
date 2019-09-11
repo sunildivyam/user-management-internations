@@ -1,0 +1,34 @@
+{
+  "name": "ums",
+  "version": "1.0.0",
+  "description": "ums is a User management SPA App.",
+  "main": "index.js",
+  "clientApp": "./ums-client-app",
+  "serverApp": "./ums-server-app",
+  "mongoDbData": "./ums-server-app/mongodb-data",
+  "public": "./public",
+  "scripts": {
+    "json-server": "json-server --watch ./ums-server-app/db-data/db.json --port=3001",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "start": "node ./ums-server-app/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.3.0",
+    "eslint-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "raw-loader": "^3.1.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  }
+}
