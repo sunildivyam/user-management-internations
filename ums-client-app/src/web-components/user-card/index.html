@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>User Information</h1>
+    <div class="info-container {{d.user ? '' : 'hidden'}}">
+        <div class="info">
+            <div class="name">
+                <h3>{{l('usercard.label.firstname')}}</h3>
+                <span>{{d.user.firstName}}</span>
+                <h3>{{l('usercard.label.lastname')}}</h3>
+                <span>{{d.user.lastName}}</span>
+            </div>
+            <div class="email">
+                <h3>{{l('usercard.label.email')}}</h3>
+                <span>{{d.user.email.toLowerCase()}}</span>
+            </div>
+        </div>
+        <div class="groups">
+            <h3>{{l('usercard.label.groups')}}</h3>
+            <wc-group-list disable-search="true" userid="{{d.user.id}}"></wc-group-list>
+        </div>
+    </div>
+    <wc-error-box hide="{{d.user ? true : false}}" message="{{d.error}}"></wc-error-box>
+</div>

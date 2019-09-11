@@ -1,0 +1,48 @@
+import styles from './index.css';
+import htmlTemplate from './index.html';
+import renderView from '../../services/view-render-service';
+import {locales} from './locale';
+import localeProviderFn from '../../services/locale-provider-fn';
+class UserDashboard extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({mode: 'open'});
+    this.state = {
+      selectedUser: null
+    };
+  }
+  connectedCallback() {
+    this.render();
+  }
+  disconnectedCallback() {
+    //TODO:
+  }
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    this.render();
+  }
+
+  getLocaleFn() {
+    const localeName = this.getAttribute('locale') || 'en';
+    const locale = locales[localeName] || {};
+    return localeProviderFn(locale);
+  }
+  createEventHandlers() {
+    const userList = this.shadowRoot.querySelector('wc-user-list');
+    userList.addEventListener('selected', e => {
+      this.state.selectedUser = e.data;
+      const userCard = this.shadowRoot.querySelector('wc-user-card');
+      userCard.setAttribute('userid', this.state.selectedUser && this.state.selectedUser.id || '');
+    });
+  }
+  render() {
+    const sRoot = this.shadowRoot;
+    const html = renderView(htmlTemplate, this.state, this.getLocaleFn());
+    const styleEl = document.createElement('style');
+    styleEl.textContent = styles;
+    sRoot.appendChild(styleEl);
+    sRoot.innerHTML += html;
+    this.createEventHandlers();
+  }
+}
+
+customElements.define('wc-user-dashboard', UserDashboard);
