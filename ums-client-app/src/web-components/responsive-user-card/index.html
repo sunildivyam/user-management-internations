@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="info-container {{!d.user || !d.user.id ? 'hidden': ''}}">
+        <div class="info">
+            <div class="name">
+                <h3>{{l('usercard.label.id')}}</h3>
+                <span>{{d.user.id}}</span>
+            </div>
+        </div>
+        <div class="groups">
+            <h3>{{l('usercard.label.groups')}}</h3>
+            <wc-group-list disable-search="true" userid="{{d.user.id}}"></wc-group-list>
+        </div>
+    </div>
+    <wc-error-box hide="{{!d.user || !d.user.id ?false:true}}" message="{{d.error}}"></wc-error-box>
+</div>

@@ -1,4 +1,5 @@
 import './loader';
+import './message-box';
 import './navigation';
 import './user-card';
 import './group-card';
@@ -10,3 +11,8 @@ import './group-dashboard';
 import './group-form';
 import './user-form';
 import './page-footer';
+
+//responsive Web components
+import './responsive-user-dashboard';
+import './responsive-user-list';
+import './responsive-user-card';

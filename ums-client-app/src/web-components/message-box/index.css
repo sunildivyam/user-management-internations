@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+.backdrop {
+    background: rgba(0,0,0, 0.2);
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+  width: 97%;
+  height: auto;  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: white;
+  padding: 0px;
+  border-radius: 10px;
+}
+
+header {
+  background: var(--primary-dark);
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+summary {  
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 15px;
+}
+
+footer {  
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  border-top: 2px solid var(--primary-lighter);
+}
+
+h1 {
+  margin: 0px;
+  font-size: 1.4em;
+}
+
+.btn-close {
+  float: right;
+}
+
+.btn-ok, .btn-ok:active, .btn-ok:visited {
+  display: inline-block;
+  width: auto;
+  padding: 10px 15px;
+  background-color: var(--primary-dark);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.btn-ok:hover {
+  background-color: var(--primary);
+}
+.hidden {
+  display: none!important;
+}
+
+.ic {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ic:hover {
+  border-color: var(--shadow);
+  /* background-color: var(--secondary-lighter); */
+}
+.ic:after {
+  content: " ";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  font-style: normal;
+}
+.close.ic:after {
+  content: "\2716";
+  color: var(--danger);
+}
+
+
+@media only screen and (min-width: 768px) {
+  .container{
+      width: 70%;
+  }
+}

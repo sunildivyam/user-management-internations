@@ -1,6 +1,6 @@
 const viewElementId = 'root';
 const DEFAULT_PATH = '/home' ;
-class Router {    
+class Router {
     constructor() {
         this._activeRoute = {};
         this._viewElmId = viewElementId;
@@ -60,7 +60,7 @@ class Router {
         //render the template
         this.renderView(route.template);
         //push to history
-        window.history.pushState(op.data, document.title, pathName);        
+        window.history.pushState(op.data, document.title, pathName);
         //notify the subscribers
         this.notifySubscribers(route);
     }

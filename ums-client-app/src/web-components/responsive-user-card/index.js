@@ -1,17 +1,22 @@
 import styles from './index.css';
 import htmlTemplate from './index.html';
+import Group from '../../models/group';
 import renderView from '../../services/view-render-service';
 import {locales} from './locale';
 import localeProviderFn from '../../services/locale-provider-fn';
 import loader from '../../services/loader-service';
 
-class UserForm extends HTMLElement {
+class ResponsiveUserCard extends HTMLElement { 
+  static get observedAttributes() {
+    return ['userid'];
+  }
   constructor() {
     super();
     this.attachShadow({mode: 'open'});
     this.state = {
       user: null,
-      groups: null
+      groups: null,
+      error: 'No User Selected or No data available.'
     };
   }
   connectedCallback() {
@@ -58,18 +63,33 @@ class UserForm extends HTMLElement {
     const locale = locales[localeName] || {};
     return localeProviderFn(locale);
   }
+  addEventHandlers() {
+    const btns = this.shadowRoot.querySelectorAll('.controls .btn');
+    btns && btns.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        //dispatch event user-action
+        const actionName = e.target.getAttribute('action-name');
+        const clickEvent = new Event('user-action');
+        clickEvent.data = {action: actionName, user: this.state.user};
+        this.dispatchEvent(clickEvent);
+      });
+    });
+    this.addEventListener('click', e => {
+      e.stopPropagation();
+    })
+  }
 
   render() {
     const sRoot = this.shadowRoot;
+    sRoot.innerHTML = '';
     const html = renderView(htmlTemplate, this.state, this.getLocaleFn());
     const styleEl = document.createElement('style');
     styleEl.textContent = styles;
     sRoot.appendChild(styleEl);
     sRoot.innerHTML += html;
-    this.addEventListener('click', e => {
-      e.stopPropagation();
-    })
+    this.addEventHandlers();
   }
 }
 
-customElements.define('wc-user-form', UserForm);
+customElements.define('wc-responsive-user-card', ResponsiveUserCard);

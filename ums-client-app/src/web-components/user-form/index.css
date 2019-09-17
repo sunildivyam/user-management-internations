@@ -62,3 +62,129 @@ button:hover {
 hr {
     margin-top: 30px;
 }
+
+.hidden {
+    display: none!important;
+}
+.group-selection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: var(--primary-lighter);
+    border: 2px solid var(--primary-light);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.source, .target {
+    width: 100%;
+}
+.mid-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.btn-remove {
+    margin-top: 0px;
+}
+
+.ic {
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.ic:hover {
+    border-color: var(--shadow);
+    /* background-color: var(--secondary-lighter); */
+}
+.ic:after {
+    content: " ";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-style: normal;
+}
+.close.ic:after {
+    content: "\2716";
+    color: var(--danger);
+}
+.edit.ic:after {
+    content: "\270E";
+    transform: scaleX(-1);
+    color: var(--success);
+}
+.arrow-up.ic:after {
+    content: "\276F";
+    transform: rotate(-90deg);
+    margin-left: -2px;
+    width: 32px;
+}
+.arrow-down.ic:after {
+    content: "\276F";
+    transform: rotate(90deg);
+    margin-left: 2px;
+    width: 28px;
+}
+.arrow-left.ic:after {
+    content: "\276F";
+    transform: scaleX(-1);
+    margin-bottom: 2px;
+    height: 28px;
+}
+.arrow-right.ic:after {
+    content: "\276F";
+    margin-bottom: -2px;
+    height: 32px;
+}
+.add.ic:after {
+    content: "\271A";
+    color: var(--success);
+}
+
+
+@media only screen and (min-width: 768px) {
+    .group-selection {
+        flex-direction: row;
+    }
+    .source, .target {
+        width: 40%;
+    }
+    .target {
+        margin-top: 50px;
+    }
+    .mid-controls {
+        width: 20%;
+        flex-direction: column;
+    }
+    .btn-remove {
+        margin-top: 15px;
+    }
+
+    .arrow-down.ic:after {
+        content: "\276F";
+        margin-bottom: -2px;
+        height: 32px;
+        transform: rotate(180deg);
+    }
+    .arrow-up.ic:after {
+        content: "\276F";
+        transform: scaleX(-1);
+        margin-bottom: 2px;
+        height: 28px;
+    }
+    .mid-controls {
+        margin-top: 46px;
+    }
+
+}

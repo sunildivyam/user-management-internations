@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="search-container">
+        <input class="search" type="search" placeholder="{{l('userlist.search.placeholder')}}"/>
+        <span class="icon">Search</span>
+    </div>
+    <div class="controls-container">
+        <label class="search-result-label">{{l('userlist.label.searcresults')}}</label> <span class="search-result"></span>
+        <a class="btn-add" href="javascript:void(0)" action="add" userid={{d.id}}><i class="ic add"></i></a>
+    </div>
+    <ul class="list">
+
+    </ul>
+    <wc-message-box show="false" header-text="Confirm" message="Are you sure?" ok-label="Yes"></wc-message-box>
+</div>

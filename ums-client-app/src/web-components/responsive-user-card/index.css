@@ -1,0 +1,86 @@
+.container {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* border: 1px solid var(--primary-light); */
+    padding: 0px 15px;
+    border-radius: 10px;
+    cursor: default;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-bottom: 0px;
+    width: 100%;
+    border-bottom: 5px solid var(--primary-light);
+    font-size: 22px;
+}
+.email {
+    font-size: 18px;
+    color: var(--primary);
+}
+
+.name h3, .email h3 {
+    margin-bottom: 0px;
+}
+
+.name span, .email span {
+    color: var(--primary);
+}
+
+.hidden {
+    display: none!important;
+}
+.groups {
+    width: 100%;
+}
+.info {
+    width: 100%;
+}
+.info-container {
+    width: 100%;
+}
+.controls {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+a.btn, a.btn:active, a.btn:visited {
+    display: inline-block;
+    margin: 0px;
+    margin-bottom: 2px;
+    padding: 10px 19px;
+    text-decoration: none;
+    background: var(--primary-light);
+    transition: 0.4s all;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btn:hover {
+    background: var(--secondary-light);
+}
+
+@media only screen and (min-width: 768px) {
+    .info-container {
+        flex-direction: row;
+        display: flex;
+    }
+    .groups {
+        padding-left: 15px;
+    }
+    .info, .groups {
+        width: 50%;
+    }
+    a.btn, a.btn:active, a.btn:visited {
+        width: auto;
+        margin-left: 10px;
+        font-size: 16px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
